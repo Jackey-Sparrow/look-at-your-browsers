@@ -7,4 +7,32 @@
 <body>
 
 </body>
+<script>
+    var windowResult = [];
+    for(var key in window){
+        windowResult.push(key);
+    }
+
+    var bodyResult = [];
+    for(var key in document.body){
+        bodyResult.push(key);
+    }
+
+    var documentResult = [];
+    for(var key in document){
+        documentResult.push(key);
+    }
+
+    var d = document.createElement('div'),
+            styleResult = [];
+
+    for(var key in d.style){
+        styleResult.push(key);
+    }
+
+    //document.write(styleResult.toString());
+    //document.write(windowResult.toString());
+    //document.write(bodyResult.toString());
+    document.write(documentResult.toString());
+</script>
 </html>

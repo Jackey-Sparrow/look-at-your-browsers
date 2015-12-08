@@ -2,19 +2,40 @@
  * Created by lja on 2015/12/2.
  */
 (function (angular) {
-	'use strict'
+	'use strict';
 
 	angular.module('desktop', ['ui.router']);
 
 	angular.module('desktop').config(function ($stateProvider, $urlRouterProvider) {
 		$stateProvider
-			.state('desktop', {
-				url: '/desktop',
+			.state('body', {
+				url: '/body',
 				templateUrl: 'desktop/templates/desktop.html',
-				controller: 'desktopController'
+				controller: 'desktopBodyController'
 			});
 
-		$urlRouterProvider.otherwise('/desktop');
+		$stateProvider
+			.state('window', {
+				url: '/window',
+				templateUrl: 'desktop/templates/desktop.html',
+				controller: 'desktopWindowController'
+			});
+
+		$stateProvider
+			.state('document', {
+				url: '/document',
+				templateUrl: 'desktop/templates/desktop.html',
+				controller: 'desktopDocumentController'
+			});
+
+		$stateProvider
+			.state('style', {
+				url: '/style',
+				templateUrl: 'desktop/templates/desktop.html',
+				controller: 'desktopStyleController'
+			});
+
+		$urlRouterProvider.otherwise('/body');
 	});
 
 })(angular);

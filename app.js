@@ -5,10 +5,11 @@
 	'use strict';
 
 	var requiredModules = [
+		'platform',
 		'desktop'
 	];
 
-	var moduleName = 'myDom';
+	var moduleName = 'myBrowser';
 
 	angular.module(moduleName, requiredModules);
 
