@@ -2,16 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Know Your Browsers</title>
     <link rel='stylesheet' href='app/content/css/main.css'/>
     <link rel='stylesheet' href='app/content/css/header.css'/>
     <link rel='stylesheet' href='desktop/content/css/desktop.css'/>
-    <script src="lib/angular.js"></script>
-    <script src="lib/angular-ui-router.js"></script>
+    <link rel='stylesheet' href='desktop/content/css/chart.css'/>
+    <link rel='stylesheet' href='app/components/loading/loading.css'/>
+    <link rel='stylesheet' href='app/components/chip-loading/chip-loading.css'/>
+    <link rel='stylesheet' href='lib/05_angular-chart/angular-chart.css'/>
+
+    <script src="lib/01_angular/angular.js"></script>
+    <script src="lib/01_angular/angular-ui-router.js"></script>
+
+    <script src="lib/05_angular-chart/Chart.js"></script>
+    <script src="lib/05_angular-chart/angular-chart.js"></script>
+
     <script src="app.js"></script>
 
     <script src="app/platform.js"></script>
+    <script src="app/components/scrollToTop/platform-scroll-to-top.js"></script>
+    <script src="app/components/loading/platform-loading.js"></script>
+    <script src="app/components/chip-loading/platform-chip-loading.js"></script>
     <script src="app/services/platform-browser-detect-service.js"></script>
+
     <script src="app/services/platform-data-service-factory.js"></script>
     <script src="app/services/platform-controller-factory.js"></script>
 
@@ -32,8 +47,10 @@
     <script src="desktop/services/desktop-style-data-service.js"></script>
     <script src="desktop/controllers/desktop-style-controller.js"></script>
 
+    <script src="desktop/controllers/desktop-chart-controller.js"></script>
+
     <script src="desktop/directives/desktop-repeat.js"></script>
-    <script src="desktop/directives/desktop-scroll-to-top.js"></script>
+
 </head>
 <body data-ng-app="myBrowser">
 <div class='header-container'>
@@ -43,9 +60,10 @@
         <li class="nav-tab"><a ui-sref=".window" ui-sref-active="active">window</a></li>
         <li class="nav-tab"><a ui-sref=".document" ui-sref-active="active">document</a></li>
         <li class="nav-tab"><a ui-sref=".style" ui-sref-active="active">style</a></li>
+        <li class="nav-tab"><a ui-sref=".chart" ui-sref-active="active">chart</a></li>
     </ul>
 </div>
 <div ui-view></div>
-<div data-desktop-scroll-to-top data-content="TOP"></div>
+<div data-platform-scroll-to-top data-content="TOP"></div>
 </body>
 </html>

@@ -10,14 +10,22 @@
 			var service = {};
 
 			service.Create = function (httpService) {
+				var statistics = {};
+				var dataList;
 
 				function getData() {
 					var defer = $q.defer();
-					httpService.getData().then(function (response) {
-						defer.resolve(collect(response.data));
-					}, function () {
-						defer.reject('error');
-					});
+					if (!dataList) {
+						httpService.getData().then(function (response) {
+							dataList = collect(response.data);
+							defer.resolve(dataList);
+						}, function () {
+							defer.reject('error');
+						});
+					}
+					else {
+						defer.resolve(dataList);
+					}
 					return defer.promise;
 				}
 
@@ -31,6 +39,7 @@
 					source.forEach(function (item) {
 						var browserName = item.browser,
 							events = item.events.split(',');
+						statistics[browserName] = events.length;
 						loop(browserName, events);
 					});
 
@@ -53,10 +62,15 @@
 					return result;
 				}
 
+				function getStatistics() {
+					return statistics;
+				}
+
 				return {
 					getData: getData,
-					filterCollection: filterCollection
-				}
+					filterCollection: filterCollection,
+					getStatistics: getStatistics
+				};
 
 			};
 

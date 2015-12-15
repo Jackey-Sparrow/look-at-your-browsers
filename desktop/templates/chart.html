@@ -1,0 +1,43 @@
+<div class="chart">
+    <div class="chart-panel">
+        <div class="title">body</div>
+        <div class="container">
+            <canvas id="bodyDoughnut" class="chart chart-doughnut"
+                    chart-data="bodyData" chart-labels="bodyLabels">
+            </canvas>
+            <div data-platform-chip-loading data-dialog-loading="bodyLoading"></div>
+        </div>
+    </div>
+
+    <div class="chart-panel">
+        <div class="title">window</div>
+        <div class="container">
+            <canvas id="windowDoughnut" class="chart chart-doughnut"
+                    chart-data="windowData" chart-labels="windowLabels">
+            </canvas>
+            <div data-platform-chip-loading data-dialog-loading="windowLoading"></div>
+        </div>
+    </div>
+
+    <div class="chart-panel">
+        <div class="title">document</div>
+        <div class="container">
+            <canvas id="documentDoughnut" class="chart chart-doughnut"
+                    chart-data="documentData" chart-labels="documentLabels">
+            </canvas>
+            <div data-platform-chip-loading data-dialog-loading="documentLoading"></div>
+        </div>
+    </div>
+
+    <div class="chart-panel">
+        <div class="title">style</div>
+        <div class="container">
+            <canvas id="styleDoughnut" class="chart chart-doughnut"
+                    chart-data="styleData" chart-labels="styleLabels">
+            </canvas>
+            <div data-platform-chip-loading data-dialog-loading="styleLoading"></div>
+        </div>
+    </div>
+</div>
+
+<button data-ng-click="openLoading()">open</button>
