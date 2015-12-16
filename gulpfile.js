@@ -5,10 +5,37 @@
 var gulp = require('gulp'),
     minifyCss = require('gulp-minify-css'),
     uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
     ngMin = require('gulp-ngmin');
 
+var rootPath = '';
 
-
-var libPth = [
-
+var cssPath = [
+    rootPath + 'lib/*/*.css',
+    rootPath + 'app/**/*.css',
+    rootPath + 'desktop/**/*.css'
 ];
+
+gulp.task('minCss', function () {
+    return gulp.src(cssPath)
+        .pipe(minifyCss())
+        .pipe(concat('main.min.css'))
+        .pipe(gulp.dest(rootPath + 'build/css'));
+});
+
+var libPath = [
+    rootPath + 'lib/01_angular/angular.js',
+    rootPath + 'lib/01_angular/angular-ui-router.js',
+    rootPath + 'lib/05_angular-chart/Chart.js',
+    rootPath + 'lib/05_angular-chart/angular-chart.js'
+];
+
+gulp.task('libJs', function () {
+    return gulp.src(libPath)
+        //.pipe(ngMin({dynamic: true}))
+        .pipe(uglify())
+        .pipe(concat('lib.min.js'))
+        .pipe(gulp.dest(rootPath + 'build/js'))
+});
+
+gulp.task('default', ['minCss', 'libJs']);
