@@ -48,7 +48,7 @@ var moduleJsPath = [
     rootPath + 'desktop/*.js',
     rootPath + 'desktop/services/*.js',
     rootPath + 'desktop/controllers/*.js',
-    rootPath + 'desktop/directive/*.js'
+    rootPath + 'desktop/directives/*.js'
 ];
 
 gulp.task('moduleJs', function () {
