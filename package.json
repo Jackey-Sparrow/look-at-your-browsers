@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Jackey-Sparrow/look-at-your-browsers/issues"
   },
-  "homepage": "https://github.com/Jackey-Sparrow/look-at-your-browsers#readme"
+  "homepage": "https://github.com/Jackey-Sparrow/look-at-your-browsers#readme",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  }
 }
