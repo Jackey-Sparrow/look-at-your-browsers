@@ -24,8 +24,8 @@ gulp.task('minCss', function () {
 });
 
 var libPath = [
-    rootPath + 'lib/01_angular/angular.js',
-    rootPath + 'lib/01_angular/angular-ui-router.js',
+    rootPath + 'lib/01_angular/angular.min.js',
+    rootPath + 'lib/01_angular/angular-ui-router.min.js',
     rootPath + 'lib/05_angular-chart/Chart.js',
     rootPath + 'lib/05_angular-chart/angular-chart.js'
 ];
@@ -69,5 +69,5 @@ gulp.task('allJs', function () {
         .pipe(gulp.dest(rootPath + 'build/js'))
 });
 
-//gulp.task('default', ['minCss', 'libJs', 'moduleJs','allJs']);
+//gulp.task('default', ['minCss', 'libJs', 'moduleJs']);
 gulp.task('default', ['allJs']);
