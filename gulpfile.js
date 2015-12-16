@@ -40,11 +40,9 @@ gulp.task('libJs', function () {
 
 var moduleJsPath = [
     rootPath + 'app.js',
-
     rootPath + 'app/*.js',
     rootPath + 'app/components/*/*.js',
     rootPath + 'app/services/*.js',
-
     rootPath + 'desktop/*.js',
     rootPath + 'desktop/services/*.js',
     rootPath + 'desktop/controllers/*.js',
@@ -59,4 +57,17 @@ gulp.task('moduleJs', function () {
         .pipe(gulp.dest(rootPath + 'build/js'))
 });
 
-gulp.task('default', ['minCss', 'libJs', 'moduleJs']);
+var allJs = [
+    rootPath + 'build/js/*.js'
+];
+
+gulp.task('allJs', function () {
+    return gulp.src(allJs)
+
+        .pipe(uglify())
+        .pipe(concat('all.min.js'))
+        .pipe(gulp.dest(rootPath + 'build/js'))
+});
+
+//gulp.task('default', ['minCss', 'libJs', 'moduleJs','allJs']);
+gulp.task('default', ['allJs']);
