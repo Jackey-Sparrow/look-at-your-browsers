@@ -38,4 +38,25 @@ gulp.task('libJs', function () {
         .pipe(gulp.dest(rootPath + 'build/js'))
 });
 
-gulp.task('default', ['minCss', 'libJs']);
+var moduleJsPath = [
+    rootPath + 'app.js',
+
+    rootPath + 'app/*.js',
+    rootPath + 'app/components/*/*.js',
+    rootPath + 'app/services/*.js',
+
+    rootPath + 'desktop/*.js',
+    rootPath + 'desktop/services/*.js',
+    rootPath + 'desktop/controllers/*.js',
+    rootPath + 'desktop/directive/*.js'
+];
+
+gulp.task('moduleJs', function () {
+    return gulp.src(moduleJsPath)
+        .pipe(ngMin({dynamic: true}))
+        .pipe(uglify())
+        .pipe(concat('module.min.js'))
+        .pipe(gulp.dest(rootPath + 'build/js'))
+});
+
+gulp.task('default', ['minCss', 'libJs', 'moduleJs']);
